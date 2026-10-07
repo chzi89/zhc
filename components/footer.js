@@ -1,126 +1,100 @@
+import Link from "next/link";
+import { clinicConfig } from "../lib/clinic-config";
+import WhatsAppButton from "./whatsapp-button";
+
+const navigation = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/Blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)] pt-space-xl pb-space-lg">
-      <div className="max-w-7xl mx-auto px-gutter">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl">
+    <footer className="w-full bg-surface-container-low pb-space-lg pt-space-xl shadow-[0_-1px_6px_rgba(0,0,0,0.02)]">
+      <div className="mx-auto max-w-7xl px-gutter">
+        <div className="mb-space-xl grid grid-cols-1 gap-space-xl md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-space-sm">
-            <div className="font-title-md text-title-md text-on-surface">
-              Zakria Homeopathy Clinic
-            </div>
-            <div className="font-label-sm text-label-sm text-secondary font-medium">
-              Dr. AmanUllah, BHMS
-            </div>
+            <h2 className="font-title-md text-title-md text-on-surface">
+              {clinicConfig.name}
+            </h2>
+            <p className="font-label-sm text-label-sm font-medium text-secondary">
+              {clinicConfig.doctor}, {clinicConfig.qualification}
+            </p>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Holistic, evidence-grounded classical homeopathic practice
-              committed to gentle restoration and sustained vitality.
+              Educational information on this website is general in nature and
+              is not a substitute for advice from a qualified healthcare
+              professional.
             </p>
           </div>
-          <div className="space-y-space-sm">
-            <div className="font-title-md text-title-md text-on-surface">
-              Quick Navigation
-            </div>
+
+          <nav aria-label="Footer navigation" className="space-y-space-sm">
+            <h2 className="font-title-md text-title-md text-on-surface">
+              Navigation
+            </h2>
             <ul className="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
-              <li>
-                <a
-                  className="hover:text-primary transition-colors"
-                  data-path="home"
-                  href="#"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-primary transition-colors"
-                  data-path="about-dr-amanullah"
-                  href="#"
-                >
-                  About Dr. AmanUllah
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-primary transition-colors"
-                  data-path="health-wellness-blog"
-                  href="#"
-                >
-                  Health &amp; Wellness Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-primary transition-colors"
-                  data-path="contact-clinic"
-                  href="#"
-                >
-                  Contact Clinic
-                </a>
-              </li>
+              {navigation.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    className="transition-colors hover:text-primary"
+                    href={href}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
+
           <div className="space-y-space-sm">
-            <div className="font-title-md text-title-md text-on-surface">
-              Direct Contact
-            </div>
+            <h2 className="font-title-md text-title-md text-on-surface">
+              Contact
+            </h2>
             <div className="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
-              <div className="flex items-center gap-space-xs">
-                <span className="material-symbols-outlined text-sm text-secondary">
-                  chat
-                </span>
-                <span>WhatsApp: +92 300 0000000</span>
-              </div>
-              <div className="flex items-center gap-space-xs">
-                <span className="material-symbols-outlined text-sm text-secondary">
-                  call
-                </span>
-                <span>Phone: +92 42 30000000</span>
-              </div>
-              <div className="flex items-center gap-space-xs">
-                <span className="material-symbols-outlined text-sm text-secondary">
-                  mail
-                </span>
-                <span>Email: clinic@zakriahomeopathy.com</span>
-              </div>
+              <WhatsAppButton className="inline-flex min-h-11 items-center text-left transition-colors hover:text-primary">
+                WhatsApp
+              </WhatsAppButton>
+              <p>
+                Phone:{" "}
+                {clinicConfig.phone ? (
+                  <a href={`tel:${clinicConfig.phone}`}>{clinicConfig.phone}</a>
+                ) : (
+                  <Link className="underline" href="/contact">
+                    Contact details not provided
+                  </Link>
+                )}
+              </p>
+              <p>
+                Email:{" "}
+                {clinicConfig.email ? (
+                  <a href={`mailto:${clinicConfig.email}`}>
+                    {clinicConfig.email}
+                  </a>
+                ) : (
+                  <span>Contact details not provided</span>
+                )}
+              </p>
             </div>
           </div>
+
           <div className="space-y-space-sm">
-            <div className="font-title-md text-title-md text-on-surface">
-              Clinic Location &amp; Hours
-            </div>
+            <h2 className="font-title-md text-title-md text-on-surface">
+              Clinic information
+            </h2>
             <div className="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
-              <div className="flex items-start gap-space-xs">
-                <span className="material-symbols-outlined text-sm text-secondary mt-0.5">
-                  location_on
-                </span>
-                <span>
-                  Main Clinical Wing, Healthcare Boulevard, Lahore, Pakistan
-                </span>
-              </div>
-              <div className="flex items-start gap-space-xs">
-                <span className="material-symbols-outlined text-sm text-secondary mt-0.5">
-                  schedule
-                </span>
-                <span>
-                  Mon – Sat: 10:00 AM – 8:00 PM
-                  <br />
-                  Sunday: By Appointment
-                </span>
-              </div>
+              <p>Address: {clinicConfig.address || "Not provided"}</p>
+              <p>Clinic hours: {clinicConfig.clinicHours || "Not provided"}</p>
             </div>
           </div>
         </div>
-        <div className="pt-space-md bg-surface-container-high/40 rounded-xl p-space-md mb-space-lg text-center">
-          <p className="font-caption text-caption text-on-surface-variant leading-relaxed">
-            <span className="font-semibold text-on-surface">
-              Medical Disclaimer:
-            </span>{" "}
-            Information on this website is for general educational purposes and
-            does not replace professional medical advice.
-          </p>
-        </div>
-        <div className="text-center font-caption text-caption text-on-surface-variant">
-          © 2026 Zakria Homeopathy Clinic. All rights reserved.
-        </div>
+
+        <p className="mb-space-lg rounded-xl bg-surface-container-high/40 p-space-md text-center font-caption text-caption leading-relaxed text-on-surface-variant">
+          For urgent or emergency symptoms, contact local emergency medical
+          services. Do not rely on this website for emergency care.
+        </p>
+        <p className="text-center font-caption text-caption text-on-surface-variant">
+          © 2026 {clinicConfig.name}. All rights reserved.
+        </p>
       </div>
     </footer>
   );
