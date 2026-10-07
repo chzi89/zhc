@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap");
-@import "tailwindcss";
-@config "../tailwind.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -9,17 +11,16 @@
   --color-foreground: var(--foreground);
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #faf8ff;
   color: var(--foreground);
   font-family: Inter, Arial, sans-serif;
-}
-@layer base {
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
