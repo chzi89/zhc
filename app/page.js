@@ -52,6 +52,9 @@ export default function HomePage() {
             <p className="font-headline-sm text-headline-sm font-semibold text-secondary">
               {clinicConfig.doctor}, {clinicConfig.qualification}
             </p>
+            <p className="font-title-md text-title-md text-on-surface">
+              {clinicConfig.experience}
+            </p>
             <p className="max-w-2xl font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
               Learn about the clinic, meet the doctor, and read general
               educational information. Website content is not a diagnosis or a
@@ -86,6 +89,41 @@ export default function HomePage() {
             src="/DrAmanUllah.jpeg"
             width={1080}
           />
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="areas-of-focus-heading"
+        className="bg-surface-container-low py-space-xl"
+      >
+        <div className="mx-auto max-w-7xl px-gutter">
+          <div className="mx-auto max-w-3xl space-y-space-sm text-center">
+            <p className="font-label-sm text-label-sm font-semibold uppercase tracking-widest text-secondary">
+              Areas of focus
+            </p>
+            <h2
+              className="font-headline-lg text-headline-lg text-on-surface"
+              id="areas-of-focus-heading"
+            >
+              Health concerns discussed at the clinic
+            </h2>
+            <ul className="flex flex-wrap justify-center gap-space-sm">
+              {clinicConfig.areasOfFocus.map((area) => (
+                <li
+                  className="rounded-full bg-surface-container-lowest px-space-md py-space-sm font-label-md text-label-md text-on-surface"
+                  key={area}
+                >
+                  {area}
+                </li>
+              ))}
+            </ul>
+            <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
+              These are areas of focus, not a promise of treatment or results.
+              Diabetes, kidney stones, and other medical conditions require
+              appropriate assessment and care from a qualified healthcare
+              professional. Do not stop or delay prescribed treatment.
+            </p>
+          </div>
         </div>
       </section>
 

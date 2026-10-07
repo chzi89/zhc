@@ -26,9 +26,9 @@ export default function AboutPage() {
             {clinicConfig.name}
           </h1>
           <p className="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
-            This website introduces the clinic and provides general
-            educational information. Clinic-specific details will be added
-            when confirmed.
+            Dr. AmanUllah has more than 20 years of experience. The clinic
+            discusses a range of health concerns while encouraging patients
+            to seek appropriate professional assessment and care.
           </p>
         </header>
 
@@ -57,28 +57,25 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant">
-              The project-provided information confirms Dr. AmanUllah&apos;s
-              BHMS qualification. Additional biography and practice details
-              have not been provided.
+              {clinicConfig.doctor} has more than 20 years of experience in
+              homeopathic practice and holds the BHMS qualification.
             </p>
             <dl className="grid gap-space-md sm:grid-cols-2">
               <div className="rounded-lg bg-surface-container-low p-space-md">
                 <dt className="font-title-md text-title-md text-on-surface">
-                  Areas of interest
+                  Areas of focus
                 </dt>
                 <dd className="mt-1 font-body-sm text-body-sm text-on-surface-variant">
-                  [Areas of Interest]
-                </dd>
-              </div>
-              <div className="rounded-lg bg-surface-container-low p-space-md">
-                <dt className="font-title-md text-title-md text-on-surface">
-                  Consultation approach
-                </dt>
-                <dd className="mt-1 font-body-sm text-body-sm text-on-surface-variant">
-                  [Consultation Approach]
+                  {clinicConfig.areasOfFocus.join(", ")}.
                 </dd>
               </div>
             </dl>
+            <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
+              Areas of focus do not imply guaranteed outcomes or replace
+              diagnosis and care from an appropriately qualified healthcare
+              professional. Do not stop or delay prescribed care, especially
+              for diabetes or kidney stones.
+            </p>
           </div>
         </section>
 
