@@ -3,6 +3,9 @@ export const articles = [
     slug: "consultation",
     title: "Preparing for a Healthcare Consultation",
     category: "Clinical Practice",
+    featuredImage: "/consultation-illustration.svg",
+    featuredImageAlt:
+      "Illustration of a patient speaking with a healthcare professional",
     excerpt:
       "Questions to consider when preparing to speak with a healthcare professional.",
     paragraphs: [

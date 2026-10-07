@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { articles, getArticleBySlug } from "../articles";
 import { clinicConfig } from "../../../lib/clinic-config";
@@ -62,13 +63,26 @@ export default async function BlogArticlePage({ params }) {
           </p>
         </header>
 
-        <div
-          aria-label="Featured image placeholder"
-          className="my-space-lg flex `aspect-[16/9] items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant"
-          role="img"
-        >
-          Featured image
-        </div>
+        {article.featuredImage ? (
+          <div className="relative my-space-lg `aspect-[16/9] overflow-hidden rounded-xl">
+            <Image
+              alt={article.featuredImageAlt}
+              className="object-cover"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              src={article.featuredImage}
+            />
+          </div>
+        ) : (
+          <div
+            aria-label="No featured image available"
+            className="my-space-lg flex `aspect-[16/9] items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant"
+            role="img"
+          >
+            Featured image
+          </div>
+        )}
 
         <div className="space-y-space-md font-body-md text-body-md leading-relaxed text-on-surface">
           {article.paragraphs.map((paragraph) => (

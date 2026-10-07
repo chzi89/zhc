@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import Icon from "../../components/icon";
 
@@ -131,14 +132,15 @@ export default function BlogPage() {
                     </div>
                   </div>
                   {/* <!-- Featured Image --> */}
-                  <div
-                    aria-label="Illustrative consultation image placeholder"
-                    className="flex `aspect-[16/9] w-full items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant lg:aspect-[1.79/1]"
-                    role="img"
-                  >
-                    <span className="font-body-md text-body-md">
-                      Consultation image
-                    </span>
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl lg:aspect-[1.79/1]">
+                    <Image
+                      alt="Illustration of a patient speaking with a healthcare professional"
+                      className="object-cover"
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 75vw"
+                      src="/consultation-illustration.svg"
+                    />
                   </div>
                   {/* <!-- Deep Rich Article Body Content --> */}
                   <article className="space-y-space-md text-on-surface font-body-md text-body-md leading-relaxed pt-space-sm">
